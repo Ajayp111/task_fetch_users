@@ -7,8 +7,10 @@ const AllUsers = ({ handleShowUserInfo, handleImageError }) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    // Replace 'YOUR_API_URL' with the actual URL to fetch user data
     const apiUrl = "https://602e7c2c4410730017c50b9d.mockapi.io/users";
 
+    // Fetch data from the API
     fetch(apiUrl)
       .then((response) => {
         if (!response.ok) {
@@ -17,8 +19,10 @@ const AllUsers = ({ handleShowUserInfo, handleImageError }) => {
         return response.json();
       })
       .then((data) => {
+        // Filter out users with missing or invalid image URLs
         const validUsers = data.filter((user) => user?.avatar);
 
+        // Exclude the first 15 users
         const filteredUsers = validUsers.slice(15);
 
         setUsers(filteredUsers);
@@ -40,11 +44,13 @@ const AllUsers = ({ handleShowUserInfo, handleImageError }) => {
   };
 
   const arrowStyles = {
+    // Customize arrow size
     width: "60px",
     height: "60px",
   };
 
   const dotStyles = {
+    // Customize dot size
     width: "12px",
     height: "12px",
     marginLeft: "5px",
@@ -105,7 +111,6 @@ const AllUsers = ({ handleShowUserInfo, handleImageError }) => {
         {users.map((user, index) => (
           <div
             key={user?.profile?.username}
-            // onClick={() => handleShowUserInfo(index)}
             className="img-div p-2 border d-flex flex-column gap-3 align-items-center"
           >
             <img

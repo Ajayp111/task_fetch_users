@@ -8,13 +8,13 @@ const AllUsers = ({ users, handleShowUserInfo, handleImageError }) => {
         Users List
       </h1>
 
-      <div className="users-container">
+      <div className="users-container border-gray-500">
         {users &&
           users?.map((user, index) => (
             <div
               key={user?.profile?.username}
               onClick={() => handleShowUserInfo(index)}
-              className="img-div p-2 border d-flex gap-3 align-items-center"
+              className="img-div p-2  d-flex gap-3 align-items-center border-gray-500 border-b-2 "
             >
               <img
                 className="img-circle"

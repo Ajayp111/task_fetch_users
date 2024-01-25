@@ -38,7 +38,12 @@ function App() {
   if (loading) {
     return (
       <div className="w-100 py-5 h-100 d-flex align-items-center justify-content-center">
-        <Spinner animation="border" variant="dark" />
+        <Spinner
+          animation="border"
+          variant="dark"
+          style={{ width: "3rem", height: "3rem" }}
+          className=""
+        />
       </div>
     );
   }
@@ -74,7 +79,7 @@ function App() {
   };
 
   return (
-    <>
+    <div className="min-h-screen bg-cover bg-center" style={appStyle}>
       <div
         className="d-flex justify-content-between p-5 gap-5 h-100"
         style={appStyle}
@@ -86,11 +91,11 @@ function App() {
           handleImageLoad={handleImageLoad}
         />
 
-        <UserDetails a={a} />
+        <UserDetails a={a} style={appStyle} />
       </div>
 
       <Users />
-    </>
+    </div>
   );
 }
 

@@ -15,7 +15,12 @@ const UserDetails = (props) => {
       <div className="d-flex flex-column align-items-center">
         {imageLoading ? (
           <div className="img-circle2 mt-3 d-flex align-items-center justify-content-center">
-            <Spinner animation="border" variant="info" />
+            <Spinner
+              animation="border"
+              variant="dark"
+              style={{ width: "3rem", height: "3rem" }}
+              className=""
+            />
           </div>
         ) : (
           <img
@@ -28,7 +33,11 @@ const UserDetails = (props) => {
         )}
 
         <p className="m-0 fs-6 pb-3">@{user?.profile?.username}</p>
-        <p className="m-0 p-2 border border-dark-subtle w-100 fs-5">
+
+        <p
+          className="m-0 p-2 w-100 fs-5"
+          style={{ border: "2px solid #808080" }}
+        >
           {user?.Bio}
         </p>
 
